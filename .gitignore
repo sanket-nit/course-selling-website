@@ -1,0 +1,24 @@
+# Directories
+node_modules/
+dist/
+build/
+
+# Files
+.env
+.DS_Store
+.idea/
+*.log
+*.tsbuildinfo
+.cache/
+
+# IDE Specific
+.vscode/
+.idea/
+
+# Testing
+coverage/
+
+# System files
+.git/
+npm-debug.log*
+yarn-error.log*
