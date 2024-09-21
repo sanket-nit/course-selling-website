@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { validate } from "../validations/validate";
-import { signupSchema } from "../validations/schemas";
+import { signupSchema } from "../validations/validationSchemas";
 
 const adminRoutes = Router();
 

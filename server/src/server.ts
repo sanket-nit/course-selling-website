@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-import connectToDataBase from "./db/connection";
 import cors from "cors";
 import userRouter from "./routes/user";
 import courseRouter from "./routes/course";
@@ -10,6 +9,7 @@ import adminRoutes from "./routes/admin";
 import cookieParser from "cookie-parser";
 
 import { Request, Response } from "express";
+import connectToDataBase from "./config/db-config";
 
 const app = express();
 
