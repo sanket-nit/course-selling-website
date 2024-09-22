@@ -1,0 +1,43 @@
+erDiagram
+    USER {
+        ObjectId _id
+        string email
+        string password
+        string firstName
+        string lastName
+        date createdAt
+        date updatedAt
+    }
+    INSTRUCTOR {
+        ObjectId _id
+        string email
+        string password
+        string firstName
+        string lastName
+        date createdAt
+        date updatedAt
+    }
+    COURSE {
+        ObjectId _id
+        string title
+        string description
+        number price
+        string imageUrl
+        ObjectId instructor
+        string category
+        object[] lessons
+        number totalDuration
+        date createdAt
+        date updatedAt
+    }
+    ENROLLMENT {
+        ObjectId _id
+        ObjectId user
+        ObjectId course
+        date enrolledAt
+        ObjectId[] completedLessons
+        number progress
+    }
+    INSTRUCTOR ||--o{ COURSE : "creates"
+    USER ||--o{ ENROLLMENT : "has"
+    COURSE ||--o{ ENROLLMENT : "has"

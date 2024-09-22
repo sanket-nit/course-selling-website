@@ -12,7 +12,7 @@ const courseSchema = new mongoose.Schema({
   description: { type: String, required: true },
   price: { type: Number, required: true, min: 0 },
   imageUrl: { type: String },
-  instructor: {type: mongoose.Types.ObjectId, ref: 'Instructor', required: true},
+  instructor: { type: mongoose.Types.ObjectId, ref: "Instructor", required: true },
   category: { type: String },
   lessons: [lessonsSchema],
   totalDuration: Number,
@@ -20,4 +20,11 @@ const courseSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.model("Course", courseSchema);
+courseSchema.pre("save", function (next) {
+  this.createdAt = new Date();
+  next();
+});
+
+const Course = mongoose.model("Course", courseSchema);
+
+export default Course;

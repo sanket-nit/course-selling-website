@@ -7,6 +7,14 @@ const instructorSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
+  refreshToken: { type: String },
 });
 
-export default mongoose.model("Instructor", instructorSchema);
+instructorSchema.pre("save", function (next) {
+  this.createdAt = new Date();
+  next();
+});
+
+const Instructor = mongoose.model("Instructor", instructorSchema);
+
+export default Instructor;

@@ -9,7 +9,8 @@ import adminRoutes from "./routes/admin";
 import cookieParser from "cookie-parser";
 
 import { Request, Response } from "express";
-import connectToDataBase from "./config/db-config";
+import connectToDataBase from "./config/db.config";
+import instructorRouter from "./routes/instructor";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/course", courseRouter);
 app.use("/api/v1/admin", adminRoutes);
+app.use("/api/v1/instructor", instructorRouter);
 
 app.get("/api/v1/health-check", (req: Request, res: Response) => {
   return res.send({
